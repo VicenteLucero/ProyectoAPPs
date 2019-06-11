@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/profile"
+            android:icon="@drawable/ic_launcher_background"
+            android:title="@string/navigation_drawer_home_title" />
+        <item
+            android:id="@+id/matches"
+            android:icon="@drawable/ic_launcher_background"
+            android:title="@string/navigation_close_matches_title" />
+
+        <item
+            android:id="@+id/reserve"
+            android:icon="@drawable/ic_launcher_background"
+            android:title="@string/navigation_reserve_field_title"
+        />
+        <item
+            android:id="@+id/request"
+            android:icon="@drawable/ic_launcher_background"
+            android:title="@string/navigation_join_requests_title" />
+        <item
+            android:id="@+id/payment"
+            android:icon="@drawable/ic_launcher_background"
+            android:title="@string/navigation_drawer_payment_methods_title" />
+        <item
+            android:id="@+id/signOut"
+            android:icon="@drawable/ic_launcher_background"
+            android:title="@string/navigation_drawer_log_out_title" />
+    </group>
+</menu>
