@@ -14,10 +14,10 @@ data class User(
     @NonNull @ColumnInfo(name = "last_name") val last_name: String,
     @NonNull @ColumnInfo(name = "email") val email: String,
     @NonNull @ColumnInfo(name = "password") val password: String,
-    @NonNull @ColumnInfo(name = "latitude") val latitude: Double,
-    @NonNull @ColumnInfo(name = "longitude") val longitude: Double,
     @NonNull @ColumnInfo(name = "points") val points: Int,
-    @NonNull @ColumnInfo(name = "photo") val photo: String?
+    @ColumnInfo(name = "latitude") val latitude: Double,
+    @ColumnInfo(name = "longitude") val longitude: Double,
+    @ColumnInfo(name = "photo") val photo: String?
 ) {
     @PrimaryKey(autoGenerate=true) var id: Int = 0
 }
