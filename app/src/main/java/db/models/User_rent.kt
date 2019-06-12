@@ -11,7 +11,8 @@ import android.support.annotation.NonNull
     foreignKeys = [
         ForeignKey(entity = User::class, parentColumns = arrayOf("email"), childColumns = arrayOf("ownerEmail"), onDelete = CASCADE),
         ForeignKey(entity = Field::class, parentColumns = arrayOf("sport"), childColumns = arrayOf("sportName"), onDelete = CASCADE),
-        ForeignKey(entity = Field::class, parentColumns = arrayOf("name"), childColumns = arrayOf("fieldName"), onDelete = CASCADE)])
+        ForeignKey(entity = Field::class, parentColumns = arrayOf("name"), childColumns = arrayOf("fieldName"), onDelete = CASCADE),
+        ForeignKey(entity = Field::class, parentColumns = arrayOf("maxPlayers"), childColumns = arrayOf("players"), onDelete = CASCADE)])
 data class User_rent(
     @NonNull @ColumnInfo(name= "ownerEmail") val ownerEmail: String,
     @NonNull @ColumnInfo(name= "fieldName") val fieldName: String,

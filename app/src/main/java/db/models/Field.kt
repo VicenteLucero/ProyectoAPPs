@@ -12,7 +12,8 @@ data class Field (
     @NonNull @ColumnInfo(name= "priceHour") val priceHour: Int,
     @NonNull @ColumnInfo(name= "latitude") val latitude: Double,
     @NonNull @ColumnInfo(name= "longitude") val longitude: Double,
-    @NonNull @ColumnInfo(name= "sport") val sport: String
+    @NonNull @ColumnInfo(name= "sport") val sport: String,
+    @NonNull @ColumnInfo(name= "maxPlayers") val maxPlayers: Int
 ){
     @PrimaryKey(autoGenerate = true) val id: Int=0
 }

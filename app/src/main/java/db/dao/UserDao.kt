@@ -1,8 +1,6 @@
 package db.dao
 
-import android.arch.persistence.room.Dao
-import android.arch.persistence.room.Insert
-import android.arch.persistence.room.Query
+import android.arch.persistence.room.*
 import db.models.User
 
 @Dao
@@ -19,6 +17,12 @@ interface UserDao {
     @Query( "SELECT photo FROM users WHERE id LIKE :id")
     fun getProfilePhoto(id: Int): String?
 
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.FAIL)
     fun insertAll(vararg user: User)
+
+    @Update(onConflict = OnConflictStrategy.FAIL)
+    fun update(user: User)
+
+    @Delete
+    fun deleteUser(user: User)
 }
