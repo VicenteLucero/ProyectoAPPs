@@ -42,6 +42,10 @@ class LoginActivity : AppCompatActivity() {
                 }
             }
         }
+
+        registerButton.setOnClickListener{
+
+        }
     }
 
     // EXTRA
