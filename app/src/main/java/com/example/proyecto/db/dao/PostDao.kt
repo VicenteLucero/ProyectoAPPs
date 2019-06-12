@@ -1,7 +1,7 @@
-package db.dao
+package com.example.proyecto.db.dao
 
 import android.arch.persistence.room.*
-import db.models.Post
+import com.example.proyecto.db.models.Post
 
 @Dao
 interface PostDao {

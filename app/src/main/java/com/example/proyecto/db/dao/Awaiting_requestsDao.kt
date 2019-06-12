@@ -1,10 +1,10 @@
-package db.dao
+package com.example.proyecto.db.dao
 
 import android.arch.persistence.room.Dao
 import android.arch.persistence.room.Delete
 import android.arch.persistence.room.Insert
 import android.arch.persistence.room.Query
-import db.models.Awaiting_requests
+import com.example.proyecto.db.models.Awaiting_requests
 
 @Dao
 interface Awaiting_requestsDao {

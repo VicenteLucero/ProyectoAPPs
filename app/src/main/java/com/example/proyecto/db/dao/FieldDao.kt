@@ -1,7 +1,7 @@
-package db.dao
+package com.example.proyecto.db.dao
 
 import android.arch.persistence.room.*
-import db.models.Field
+import com.example.proyecto.db.models.Field
 
 @Dao
 interface FieldDao {
@@ -12,7 +12,7 @@ interface FieldDao {
     fun getBySport(sport: String): List<Field>
 
     @Query("SELECT * FROM fields WHERE name LIKE :name")
-    fun getByName(name: String)
+    fun getByName(name: String): List<Field>
 
     @Insert
     fun insertField(vararg field: Field)

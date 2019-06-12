@@ -1,4 +1,4 @@
-package db.models
+package com.example.proyecto.db.models
 
 import android.arch.persistence.room.ColumnInfo
 import android.arch.persistence.room.Entity
@@ -15,5 +15,5 @@ data class Post(
     @NonNull @ColumnInfo(name= "title") val title: String,
     @NonNull @ColumnInfo(name= "required") val required: Int
 ) {
-    @PrimaryKey(autoGenerate = true) val id: Int=0
+    @PrimaryKey(autoGenerate = true) var id: Int=0
 }

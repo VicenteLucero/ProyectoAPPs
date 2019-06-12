@@ -1,7 +1,7 @@
-package db.dao
+package com.example.proyecto.db.dao
 
 import android.arch.persistence.room.*
-import db.models.Sport
+import com.example.proyecto.db.models.Sport
 
 @Dao
 interface SportDao {
@@ -9,7 +9,7 @@ interface SportDao {
     fun getAllSports(): List<Sport>
 
     @Query("SELECT description FROM sports WHERE name LIKE :name")
-    fun getDescription(name: String): String?
+    fun getDescription(name: String): String
 
     @Insert
     fun insertAll(vararg sport: Sport)

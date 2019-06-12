@@ -1,10 +1,10 @@
-package db.dao
+package com.example.proyecto.db.dao
 
 import android.arch.persistence.room.Dao
 import android.arch.persistence.room.Delete
 import android.arch.persistence.room.Insert
 import android.arch.persistence.room.Query
-import db.models.Evaluate_user
+import com.example.proyecto.db.models.Evaluate_user
 
 @Dao
 interface Evaluate_userDao {

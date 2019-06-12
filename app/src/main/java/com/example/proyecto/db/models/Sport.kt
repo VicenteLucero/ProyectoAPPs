@@ -1,4 +1,4 @@
-package db.models
+package com.example.proyecto.db.models
 
 import android.arch.persistence.room.ColumnInfo
 import android.arch.persistence.room.Entity
@@ -11,5 +11,5 @@ class Sport(
     @NonNull @ColumnInfo(name="name") val name: String,
     @NonNull @ColumnInfo(name= "description") val description: String
 ) {
-    @PrimaryKey(autoGenerate = true) val id: Int=0
+    @PrimaryKey(autoGenerate = true) var id: Int=0
 }

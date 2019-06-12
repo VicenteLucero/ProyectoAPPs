@@ -1,11 +1,11 @@
-package db
+package com.example.proyecto.db
 
 import android.arch.persistence.room.Database
 import android.arch.persistence.room.Room
 import android.arch.persistence.room.RoomDatabase
 import android.content.Context
-import db.dao.*
-import db.models.*
+import com.example.proyecto.db.dao.*
+import com.example.proyecto.db.models.*
 
 @Database(entities = [User::class,
     Post::class,
