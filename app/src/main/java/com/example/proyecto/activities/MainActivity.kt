@@ -1,11 +1,14 @@
-package com.example.proyecto
+package com.example.proyecto.activities
 
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v4.view.GravityCompat
 import android.view.MenuItem
+import com.example.proyecto.R
 import fragments.*
+import com.example.proyecto.RequestCode
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -15,6 +18,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setToolbar()
+        loadUserDataOrSendToLoginActivity()
 
     }
 
@@ -111,5 +115,23 @@ class MainActivity : AppCompatActivity() {
     
     private fun onSignOut(){
         
+    }
+
+    private fun loadUserDataOrSendToLoginActivity() {
+            goToLoginActivity()
+
+    }
+
+
+    private fun goToLoginActivity() {
+        // Clear current fragment to release memory.
+        if (currentLoadedFragment != null) {
+            val transaction = supportFragmentManager.beginTransaction()
+            transaction.remove(currentLoadedFragment!!).commit()
+        }
+        // Initialize LogIn Activity
+        startActivityForResult(
+            Intent(this, LoginActivity::class.java),
+            RequestCode.GO_TO_LOGIN_FROM_MAIN_ACTIVITY.value)
     }
 }
