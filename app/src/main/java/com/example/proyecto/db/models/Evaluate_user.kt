@@ -9,7 +9,7 @@ import android.support.annotation.NonNull
 
 
 @Entity(tableName = "evaluations", foreignKeys = [ForeignKey(entity=User::class, parentColumns = arrayOf("id"), childColumns = arrayOf("user"), onDelete = CASCADE),
-                                                    ForeignKey(entity= User_rent::class, parentColumns = arrayOf("id"), childColumns = arrayOf("event"), onDelete = CASCADE)])
+                                                    ForeignKey(entity=User_rent::class, parentColumns = arrayOf("id"), childColumns = arrayOf("event"), onDelete = CASCADE)])
 data class Evaluate_user (
     @NonNull @ColumnInfo(name= "user") val user: Int,
     @NonNull @ColumnInfo(name= "event") val event: Int,

@@ -8,6 +8,9 @@ import com.example.proyecto.db.models.Awaiting_requests
 
 @Dao
 interface Awaiting_requestsDao {
+    @Query("SELECT * FROM requests")
+    fun getAll(): List<Awaiting_requests>
+
     @Query("SELECT * FROM requests WHERE post LIKE :post_id")
     fun getPostrequests(post_id: Int): List<Awaiting_requests>
 
