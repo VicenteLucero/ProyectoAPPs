@@ -132,6 +132,6 @@ class MainActivity : AppCompatActivity() {
         // Initialize LogIn Activity
         startActivityForResult(
             Intent(this, LoginActivity::class.java),
-            RequestCode.GO_TO_LOGIN_FROM_MAIN_ACTIVITY.value)
+            RequestCode.GO_TO_LOGIN_FROM_MAIN_ACTIVITY)
     }
 }

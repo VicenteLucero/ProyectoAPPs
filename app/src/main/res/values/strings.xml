@@ -1,13 +1,22 @@
 <resources>
     <string name="app_name">Proyecto</string>
 
-    <!-- LOGIN ACTIVITY -->
+    <!-- LOGIN and REGISTER ACTIVITY -->
     <string name="emailHint">Email</string>
+    <string name="nameHint">First Name</string>
+    <string name="lastNameHint">Last Name</string>
     <string name="passwordHint">Password</string>
     <string name="loginButtonText">Sign In</string>
     <string name="registerButtonText">Sign Up</string>
     <string name="emailError">Invalid Email</string>
     <string name="passwordError">Empty Password</string>
+    <string name="passwordDifError">Passwords do not match</string>
+    <string name="nameError">Empty Name</string>
+    <string name="lastNameError">Empty Last Name</string>
+    <string name="loginError">Wrong Email or Password</string>
+
+
+
 
 
     <string name="navigation_drawer_home_title">Profile</string>
