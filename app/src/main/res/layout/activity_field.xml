@@ -75,7 +75,11 @@
             app:layout_constraintEnd_toStartOf="@+id/descriptionValue" android:layout_marginEnd="28dp"/>
     <ListView
             android:layout_width="372dp"
-            android:layout_height="203dp" android:layout_marginTop="8dp"
-            app:layout_constraintTop_toBottomOf="@+id/descriptionValue" app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="20dp" android:id="@+id/rentList" android:visibility="invisible"/>
+            android:layout_height="203dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/descriptionValue"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="20dp"
+            android:id="@+id/rentList"
+            android:visibility="invisible"/>
 </android.support.constraint.ConstraintLayout>

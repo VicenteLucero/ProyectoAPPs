@@ -11,6 +11,8 @@ import com.example.proyecto.R
 
 
 import com.example.proyecto.db.models.Schedules
+import org.w3c.dom.Text
+import kotlin.coroutines.coroutineContext
 
 
 class ScheduleAdapter(
@@ -31,13 +33,17 @@ class ScheduleAdapter(
         return position.toLong()
     }
 
+    fun getScheduleItemId(position: Int): Int{
+        return dataSource[position].id
+    }
+
+
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
         // Get view for row item
         val rowView = inflater.inflate(R.layout.list_item_schedule, parent, false)
 
         if (!dataSource[position].rented) {
-
-            rowView.findViewById<TextView>(R.id.fieldNameTextView).text = dataSource[position].field.toString()
+            rowView.findViewById<TextView>(R.id.fieldNameTextView).text = "Available"
             rowView.findViewById<TextView>(R.id.hourTextView).text = dataSource[position].hour.toString()
 
 

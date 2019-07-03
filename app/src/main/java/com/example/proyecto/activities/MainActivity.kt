@@ -226,8 +226,10 @@ class MainActivity : AppCompatActivity(),  OnMapReadyCallback {
 
             when (menuItem.itemId) {
                 R.id.home ->{
-
-                    setContentView(R.layout.activity_main)
+                    val intent = Intent(applicationContext, MainActivity::class.java)
+                    intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
+                    startActivity(intent)
+                    finish()
                 }
                 R.id.profile -> {
                     val profileFragment = supportFragmentManager.findFragmentByTag("profileFrag")
