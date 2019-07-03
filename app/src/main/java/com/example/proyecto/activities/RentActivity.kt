@@ -88,17 +88,15 @@ class RentActivity : AppCompatActivity() {
                         Toast.makeText(baseContext, "Error storing rent ${e.message}", Toast.LENGTH_LONG).show()
                     }
                 }
-            }
 
 
-            GlobalScope.launch(Dispatchers.IO) {
                 try {
                     val userRentId = AppDatabase.getDatabase(baseContext).user_rentDao().getScheduleRent(currentScheduleId).id
-                    val newPost = Post(userRentId, "Max", descriptionText, sportText.toInt())
+                    val newPost = Post(userRentId, "Max", descriptionText, playersText.toInt())
                     AppDatabase.getDatabase(baseContext).postDao().insertPost(newPost)
 
                     launch(Dispatchers.Main) {
-                        Toast.makeText(baseContext, "Posted!", Toast.LENGTH_LONG).show()
+                        Toast.makeText(baseContext, "Posted and Rented!", Toast.LENGTH_LONG).show()
                     }
                 } catch (e: Exception) {
                     launch(Dispatchers.Main) {
@@ -107,6 +105,7 @@ class RentActivity : AppCompatActivity() {
                     }
                 }
             }
+
 
 
 

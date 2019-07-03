@@ -54,69 +54,68 @@ android:layout_margin="8dp">
         android:background="@color/colorPrimaryDark"/>
 
 <!-- This is user commentaries Land -->
-<android.support.constraint.ConstraintLayout
-        android:id="@+id/commentarySectionConstraintLayout"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintTop_toBottomOf="@+id/horizontalBar"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
-
-
-    <EditText
-            android:id="@+id/sportEditText"
+    <android.support.constraint.ConstraintLayout
+            android:id="@+id/commentarySectionConstraintLayout"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:textSize="16dp"
-            android:inputType="text"
-            android:maxLines="1"
-            android:maxLength="140"
-            android:hint="What sport will you be playing?"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/playersEditText"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"/>
-    <EditText
-            android:id="@+id/playersEditText"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:textSize="16dp"
-            android:inputType="number"
-            android:maxLines="1"
-            android:maxLength="140"
-            android:hint="how many players?"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/descriptionEditText"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"/>
-
-    <EditText
-            android:id="@+id/descriptionEditText"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:textSize="16dp"
-            android:inputType="text"
-            android:maxLines="1"
-            android:maxLength="140"
-            android:hint="Description"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/sendPostButton"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"/>
-
-    <Button
-            android:id="@+id/sendPostButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toTopOf="parent"
+            android:layout_height="0dp"
+            app:layout_constraintTop_toBottomOf="@+id/horizontalBar"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@id/descriptionEditText"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:text="ENVIAR"
-            android:layout_marginStart="4dp"/>
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.0">
 
-</android.support.constraint.ConstraintLayout>
+
+        <EditText
+                android:id="@+id/sportEditText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textSize="16dp"
+                android:inputType="text"
+                android:maxLines="1"
+                android:maxLength="140"
+                android:hint="What sport will you be playing?"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="32dp" app:layout_constraintTop_toBottomOf="@+id/playersEditText"
+                android:layout_marginEnd="8dp" app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"/>
+        <EditText
+                android:id="@+id/playersEditText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textSize="16dp"
+                android:inputType="number"
+                android:maxLines="1"
+                android:maxLength="140"
+                android:hint="how many players?"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginEnd="8dp" app:layout_constraintEnd_toEndOf="parent"/>
+
+        <EditText
+                android:id="@+id/descriptionEditText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textSize="16dp"
+                android:inputType="text"
+                android:maxLines="1"
+                android:maxLength="140"
+                android:hint="Description"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/sendPostButton"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <Button
+                android:id="@+id/sendPostButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@id/descriptionEditText"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:text="ENVIAR"
+                android:layout_marginStart="4dp"/>
+
+    </android.support.constraint.ConstraintLayout>
 
 
 </android.support.constraint.ConstraintLayout>

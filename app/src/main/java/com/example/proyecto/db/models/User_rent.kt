@@ -9,7 +9,6 @@ import android.support.annotation.NonNull
 
 @Entity(tableName = "user_rents",
     foreignKeys = [
-        ForeignKey(entity = User::class, parentColumns = arrayOf("id"), childColumns = arrayOf("owner"), onDelete = CASCADE),
         ForeignKey(entity = Schedules::class, parentColumns = arrayOf("id"), childColumns = arrayOf("schedule"), onDelete = CASCADE)])
 
 

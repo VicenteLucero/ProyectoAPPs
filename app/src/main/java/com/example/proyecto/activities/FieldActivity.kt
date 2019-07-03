@@ -8,6 +8,7 @@ import android.view.View
 import android.widget.Toast
 import com.example.proyecto.R
 import com.example.proyecto.adapter.JoinRequestAdapter
+import com.example.proyecto.adapter.PostAdapter
 import com.example.proyecto.adapter.ScheduleAdapter
 import com.example.proyecto.db.AppDatabase
 import com.example.proyecto.db.models.Post
@@ -41,29 +42,18 @@ class FieldActivity : AppCompatActivity() {
         longitude = intent.getDoubleExtra("LONGITUDE", 0.0)
         loadFieldDetails()
         setListener()
-        setListOnClickListener()
     }
 
     private fun setListener() {
         seeRentButton.setOnClickListener {
             rentList.visibility = View.VISIBLE
-            //matchesList.visibility = View.INVISIBLE
+            postList.visibility = View.INVISIBLE
             loadSchedules()
-            setListOnClickListener()
         }
         matchButton.setOnClickListener {
             rentList.visibility = View.INVISIBLE
-            //matchesList.visibility = View.VISIBLE
+            postList.visibility = View.VISIBLE
             loadPosts()
-        }
-    }
-
-    private fun setListOnClickListener() {
-        rentList.setOnItemClickListener { _, _, position, _ ->
-            val selectedSchedule = (rentList.adapter).getItem(position) as Schedules
-            startActivity(
-                Intent(baseContext, RentActivity::class.java).
-                    putExtra("SCHEDULE_ID", selectedSchedule.id))
         }
     }
 
@@ -99,6 +89,13 @@ class FieldActivity : AppCompatActivity() {
                         myList.add(i)
                     }
                 }
+            }
+            print(myList)
+            launch(Dispatchers.Main) {
+                // replaces uiThread (runs on UIThread)
+                val itemsAdapter = PostAdapter(this@FieldActivity, ArrayList(myList))
+                postList.adapter = itemsAdapter
+
             }
         }
     }

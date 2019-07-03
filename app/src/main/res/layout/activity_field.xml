@@ -9,25 +9,29 @@
 
     <TextView
 
-            android:layout_width="277dp"
-            android:layout_height="39dp"
-            android:id="@+id/fieldTitle" android:layout_marginTop="36dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/fieldTitle"
+            android:layout_marginTop="36dp"
+            android:layout_marginLeft="@dimen/fab_margin"
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="88dp" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
-            app:layout_constraintHorizontal_bias="0.0" android:textStyle="bold" android:textSize="20sp"/>
+            android:textStyle="bold"
+            android:textSize="30sp"/>
     <TextView
             android:text="@string/price_per_hour_title"
-            android:layout_width="139dp"
-            android:layout_height="42dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:id="@+id/priceTitle" android:layout_marginTop="16dp"
-            app:layout_constraintTop_toBottomOf="@+id/fieldTitle" app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="36dp"
+            app:layout_constraintTop_toBottomOf="@+id/fieldTitle"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="@dimen/fab_margin"
             android:textSize="20sp" android:textStyle="bold"/>
     <TextView
-            android:layout_width="191dp"
-            android:layout_height="39dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:id="@+id/priceValue" app:layout_constraintStart_toEndOf="@+id/priceTitle"
-            android:layout_marginStart="32dp" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="@dimen/fab_margin"
             android:layout_marginTop="16dp" app:layout_constraintTop_toBottomOf="@+id/fieldTitle"
             app:layout_constraintHorizontal_bias="0.68"/>
     <TextView
@@ -70,12 +74,43 @@
             android:text="@string/match_button_field"
             android:layout_width="133dp"
             android:layout_height="46dp"
-            android:id="@+id/matchButton" android:layout_marginTop="12dp"
+            android:id="@+id/matchButton" android:layout_marginTop="8dp"
             app:layout_constraintTop_toBottomOf="@+id/seeRentButton"
-            app:layout_constraintEnd_toStartOf="@+id/descriptionValue" android:layout_marginEnd="28dp"/>
-    <ListView
-            android:layout_width="372dp"
-            android:layout_height="203dp" android:layout_marginTop="8dp"
-            app:layout_constraintTop_toBottomOf="@+id/descriptionValue" app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="20dp" android:id="@+id/rentList" android:visibility="invisible"/>
+            app:layout_constraintEnd_toStartOf="@+id/descriptionValue" android:layout_marginEnd="24dp"/>
+    <ScrollView
+            android:id="@+id/firstScrollview"
+            android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8dp"
+                app:layout_constraintTop_toBottomOf="@+id/matchButton" android:layout_marginBottom="8dp"
+                app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginEnd="8dp" app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="8dp" app:layout_constraintHorizontal_bias="0.335"
+                app:layout_constraintVertical_bias="0.312">
+        <ListView
+                android:layout_width="236dp"
+                android:layout_height="126dp" android:layout_marginTop="8dp"
+                app:layout_constraintTop_toBottomOf="@+id/descriptionValue"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="20dp" android:id="@+id/rentList" app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginEnd="8dp" android:layout_marginBottom="8dp"
+                app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintVertical_bias="0.216"/>
+    </ScrollView>
+
+    <ScrollView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8dp"
+                app:layout_constraintTop_toBottomOf="@+id/matchButton" android:layout_marginBottom="8dp"
+                app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginEnd="8dp" app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="8dp" app:layout_constraintHorizontal_bias="0.335"
+                app:layout_constraintVertical_bias="0.312">
+        <ListView
+                android:layout_width="236dp"
+                android:layout_height="126dp" android:layout_marginTop="8dp"
+                app:layout_constraintTop_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="20dp" android:id="@+id/postList" app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginEnd="8dp" android:layout_marginBottom="8dp"
+                app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintVertical_bias="0.216"/>
+    </ScrollView>
+
 </android.support.constraint.ConstraintLayout>

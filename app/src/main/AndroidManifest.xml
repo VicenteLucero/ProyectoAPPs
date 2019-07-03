@@ -18,6 +18,8 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        <activity android:name=".activities.RequestActivity">
+        </activity>
         <activity android:name=".activities.RentActivity">
         </activity>
         <activity android:name=".activities.FieldActivity">
