@@ -14,6 +14,9 @@ interface Awaiting_requestsDao {
     @Query("SELECT * FROM requests WHERE post LIKE :post_id")
     fun getPostrequests(post_id: Int): List<Awaiting_requests>
 
+    @Query("SELECT * FROM requests WHERE requester LIKE :user")
+    fun getUserResquets(user: Int): List<Awaiting_requests>
+
     @Insert
     fun insertAll(vararg awaiting_requests: Awaiting_requests)
 

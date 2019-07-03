@@ -14,6 +14,9 @@ interface Evaluate_userDao {
     @Insert
     fun insertEvaluation(vararg evaluate_user: Evaluate_user)
 
+    @Insert
+    fun insertAll(evaluate_user: List<Evaluate_user>)
+
     @Delete
     fun deleteEvaluation(evaluate_user: Evaluate_user)
 }

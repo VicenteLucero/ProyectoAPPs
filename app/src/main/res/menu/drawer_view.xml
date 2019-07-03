@@ -2,19 +2,15 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android" >
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/profile"
+            android:id="@+id/home"
             android:icon="@drawable/ic_launcher_background"
-            android:title="@string/navigation_drawer_home_title" />
-        <item
-            android:id="@+id/matches"
-            android:icon="@drawable/ic_launcher_background"
-            android:title="@string/navigation_close_matches_title" />
+            android:title="@string/navigation_drawer_home_title"/>
 
         <item
-            android:id="@+id/reserve"
+            android:id="@+id/profile"
             android:icon="@drawable/ic_launcher_background"
-            android:title="@string/navigation_reserve_field_title"
-        />
+            android:title="@string/navigation_drawer_profile_title" />
+
         <item
             android:id="@+id/request"
             android:icon="@drawable/ic_launcher_background"

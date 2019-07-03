@@ -67,13 +67,6 @@ class RegisterActivity : AppCompatActivity() {
                 else -> {
                    val newUser = createNewUserObject()
                     storeNewUser(newUser)
-                    // Add data to invoking intent
-                    intent.apply {
-                        putExtra("EMAIL", userEmail)
-                        putExtra("PASSWORD", userPassword)
-                    }
-                    // Set response
-                    setResult(Activity.RESULT_OK, intent)
                     finish()
                 }
             }
@@ -91,7 +84,7 @@ class RegisterActivity : AppCompatActivity() {
 
     private fun storeNewUser(user: User){
 
-        val userDao = AppDatabase.getDatabase(context = this).userDao()
+        val userDao = AppDatabase.getDatabase(this).userDao()
         GlobalScope.launch(Dispatchers.IO) {  // replaces doAsync (runs on another thread)
             try {
                 userDao.insertAll(user)

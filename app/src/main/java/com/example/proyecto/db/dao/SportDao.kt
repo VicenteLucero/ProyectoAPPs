@@ -8,8 +8,8 @@ interface SportDao {
     @Query("SELECT * FROM sports")
     fun getAllSports(): List<Sport>
 
-    @Query("SELECT description FROM sports WHERE name LIKE :name")
-    fun getDescription(name: String): String
+    @Query("SELECT * FROM sports WHERE id LIKE :id")
+    fun getSport(id: Int): Sport
 
     @Insert
     fun insertAll(vararg sport: Sport)

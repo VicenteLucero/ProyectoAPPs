@@ -34,9 +34,9 @@ class Join_request : Fragment() {
     }
 
     private fun loadUserRequests() {
-        val awaiting_requestsDao = AppDatabase.getDatabase(context!!).awaiting_requestsDao()
+        val awaitingRequestsDao = AppDatabase.getDatabase(context!!).awaiting_requestsDao()
         GlobalScope.launch(Dispatchers.IO) { // replaces doAsync (runs on another thread)
-            val requests = awaiting_requestsDao.getAll()
+            val requests = awaitingRequestsDao.getAll()
             launch(Dispatchers.Main) {// replaces uiThread (runs on UIThread)
                 val itemsAdapter = JoinRequestAdapter(context!!, ArrayList(requests))
                 requestList.adapter = itemsAdapter

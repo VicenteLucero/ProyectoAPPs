@@ -58,7 +58,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintVertical_chainStyle="packed"
-            android:layout_marginTop="100dp"
+            android:layout_marginTop="10dp"
             android:text="@string/registerButtonText"/>
 
 </android.support.constraint.ConstraintLayout>

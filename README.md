@@ -1,3 +1,4 @@
 # ProyectoAPPs
 
-Sidebar creado
+Vicente Lucero
+Enrique Riveros

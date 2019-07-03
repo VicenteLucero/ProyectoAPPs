@@ -27,7 +27,13 @@
                 android:id="@+id/contentFrameLayout"
                 android:layout_below="@id/toolbar"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"/>
+                android:layout_height="match_parent">
+            <fragment
+                    android:id="@+id/MapFragment"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:name="com.google.android.gms.maps.SupportMapFragment"/>
+        </FrameLayout>
 
     </RelativeLayout>
 

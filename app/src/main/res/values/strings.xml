@@ -16,13 +16,11 @@
     <string name="loginError">Wrong Email or Password</string>
 
 
-
-
-
-    <string name="navigation_drawer_home_title">Profile</string>
+    <string name="navigation_drawer_home_title">Home</string>
+    <string name="navigation_drawer_profile_title">Profile</string>
     <string name="navigation_close_matches_title">Partidos Cercanos</string>
     <string name="navigation_reserve_field_title">Reservar Cancha</string>
-    <string name="navigation_join_requests_title">Solicitudes para unirse</string>
+    <string name="navigation_join_requests_title">Solicitudes para unirse blabla</string>
     <string name="navigation_drawer_payment_methods_title">Métodos de pago</string>
     <string name="navigation_drawer_log_out_title">Logout</string>
     <string name="navigation_drawer_explore_title">Explorar</string>
@@ -39,4 +37,31 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_login">LoginActivity</string>
     <string name="title_activity_register">RegisterActivity</string>
+    <string name="credentials_shared_preference_file">com.example.proyecto.CREDENTIALS_PREFERENCE_FILE_KEY</string>
+    <string name="profile_user_name">Name</string>
+    <string name="userLastNameValue">Last Name</string>
+    <string name="userEmailValue">Email</string>
+    <string name="userEvaluationText">Evaluation</string>
+    <string name="profileEditButton">Edit</string>
+    <string name="profile_image_edit">Upload image</string>
+    <string name="password_edit_title">Change Password</string>
+    <string name="commit_button_title">Commit</string>
+    <string name="cancel_button_title">Cancel</string>
+    <string name="payment_fragment_title">Payment Methods</string>
+    <string name="add_payment_method">Add Method</string>
+    <string name="pending_title_string">Pending Request</string>
+    <string name="accepted_title_string">Accepted Request</string>
+    <string name="new_method_title">New Payment Method</string>
+    <string name="card_number_title">Card Number</string>
+    <string name="card_name_title">Card Name</string>
+    <string name="card_type_title">Card Type</string>
+    <string name="credit_title">Crefit</string>
+    <string name="debit_title">Debit</string>
+    <string name="paypal_title">Paypal</string>
+    <string name="add_new_method_button">Add Method</string>
+    <string name="price_per_hour_title">Price per Hour</string>
+    <string name="sport_title">Sport</string>
+    <string name="description_title">Description</string>
+    <string name="rent_button_field">Rent</string>
+    <string name="match_button_field">Matches</string>
 </resources>
