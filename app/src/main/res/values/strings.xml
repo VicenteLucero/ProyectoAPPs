@@ -20,7 +20,7 @@
     <string name="navigation_drawer_profile_title">Profile</string>
     <string name="navigation_close_matches_title">Partidos Cercanos</string>
     <string name="navigation_reserve_field_title">Reservar Cancha</string>
-    <string name="navigation_join_requests_title">Solicitudes para unirse blabla</string>
+    <string name="navigation_join_requests_title">Solicitudes</string>
     <string name="navigation_drawer_payment_methods_title">Métodos de pago</string>
     <string name="navigation_drawer_log_out_title">Logout</string>
     <string name="navigation_drawer_explore_title">Explorar</string>
@@ -64,4 +64,5 @@
     <string name="description_title">Description</string>
     <string name="rent_button_field">Rent</string>
     <string name="match_button_field">Matches</string>
+    <string name="my_rents_title">My Rents</string>
 </resources>

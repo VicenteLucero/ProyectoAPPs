@@ -1,0 +1,22 @@
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                             xmlns:app="http://schemas.android.com/apk/res-auto"
+                                             xmlns:tools="http://schemas.android.com/tools"
+                                             android:layout_width="match_parent"
+                                             android:layout_height="match_parent"
+                                             tools:context="fragments.My_Rented_Fields" android:background="#FCFAFA">
+    <TextView
+            android:text="@string/my_rents_title"
+            android:layout_width="274dp"
+            android:layout_height="40dp"
+            android:id="@+id/titleTextView" android:layout_marginTop="36dp"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="68dp"
+            android:textSize="30sp" android:textStyle="bold"/>
+    <ListView
+            android:layout_width="375dp"
+            android:layout_height="427dp"
+            app:layout_constraintTop_toBottomOf="@+id/titleTextView" android:layout_marginTop="60dp"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="16dp"
+            android:layout_marginBottom="8dp" app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintVertical_bias="0.025" android:id="@+id/myRentList"/>
+</android.support.constraint.ConstraintLayout>

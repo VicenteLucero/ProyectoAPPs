@@ -246,7 +246,7 @@ class Profile : Fragment() {
             updateUser()
         }
 
-        profileImage.setOnClickListener {
+        imageEdit.setOnClickListener {
             if (hasCamera()) {
                 dispatchToCameraActivity()
             } else {

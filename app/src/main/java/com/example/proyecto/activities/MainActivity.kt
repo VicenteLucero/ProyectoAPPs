@@ -226,8 +226,10 @@ class MainActivity : AppCompatActivity(),  OnMapReadyCallback {
 
             when (menuItem.itemId) {
                 R.id.home ->{
-
-                    setContentView(R.layout.activity_main)
+                    val intent = Intent(applicationContext, MainActivity::class.java)
+                    intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
+                    startActivity(intent)
+                    finish()
                 }
                 R.id.profile -> {
                     val profileFragment = supportFragmentManager.findFragmentByTag("profileFrag")
@@ -247,6 +249,16 @@ class MainActivity : AppCompatActivity(),  OnMapReadyCallback {
                         transaction.replace(R.id.contentFrameLayout, Join_request(), "requestsFrag")
                     }
                     supportActionBar!!.title = getString(R.string.action_bar_join_requests_title)
+                }
+
+                R.id.myRents -> {
+                    val myRentsFragment = supportFragmentManager.findFragmentByTag("myRentsFrag")
+                    if (myRentsFragment != null){
+                        transaction.replace(R.id.contentFrameLayout, myRentsFragment)
+                    } else {
+                        transaction.replace(R.id.contentFrameLayout, MyRequests(), "myRentsFrag")
+                    }
+                    supportActionBar!!.title = "@string/my_rents_title"
                 }
 
                 R.id.payment -> {

@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.AdapterView
 import android.widget.Toast
 import com.example.proyecto.R
 import com.example.proyecto.adapter.JoinRequestAdapter
@@ -14,11 +15,8 @@ import com.example.proyecto.db.AppDatabase
 import com.example.proyecto.db.models.Post
 import com.example.proyecto.db.models.Schedules
 import com.example.proyecto.db.models.User
-import com.google.android.gms.maps.model.LatLng
 import kotlinx.android.synthetic.main.activity_field.*
 import kotlinx.android.synthetic.main.activity_register.*
-import kotlinx.android.synthetic.main.fragment_join_request.*
-import kotlinx.android.synthetic.main.list_item_schedule.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -30,7 +28,7 @@ class FieldActivity : AppCompatActivity() {
     private var latitude: Double = 0.0
     private var longitude: Double = 0.0
     private var current_id = 0
-
+    private lateinit var itemsAdapter: ScheduleAdapter
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -55,6 +53,15 @@ class FieldActivity : AppCompatActivity() {
             postList.visibility = View.VISIBLE
             loadPosts()
         }
+
+        rentList.setOnItemClickListener{ parent: AdapterView<*>?, view: View?, position: Int, id: Long ->
+            Toast.makeText(this, "Clicked item : $position",Toast.LENGTH_SHORT).show()
+            val schedule = (rentList.adapter).getItem(position) as Schedules
+            startActivity(
+                Intent(this, RentActivity::class.java).
+                    putExtra("SCHEDULE_ID", schedule.id))
+        }
+
     }
 
     private fun loadSchedules() {
@@ -63,7 +70,7 @@ class FieldActivity : AppCompatActivity() {
             val schedules = schedulesDao.getSchedule(current_id)
             launch(Dispatchers.Main) {
                 // replaces uiThread (runs on UIThread)
-                val itemsAdapter = ScheduleAdapter(this@FieldActivity, ArrayList(schedules))
+                itemsAdapter = ScheduleAdapter(this@FieldActivity, ArrayList(schedules))
                 rentList.adapter = itemsAdapter
 
             }

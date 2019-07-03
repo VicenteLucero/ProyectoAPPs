@@ -28,8 +28,8 @@
             android:layout_height="wrap_content" />
 
     <Button android:layout_width="wrap_content" android:layout_height="wrap_content"
-    android:id="@+id/goRentButton"
-    android:text="Rent"
+            android:id="@+id/goRentButton"
+            android:text="Rent"
             android:layout_below="@+id/fieldNameTextView"/>
 
 </RelativeLayout>
