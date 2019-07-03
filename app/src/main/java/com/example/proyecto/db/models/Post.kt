@@ -9,11 +9,12 @@ import android.support.annotation.NonNull
 import java.sql.Time
 
 @Entity(tableName = "posts", foreignKeys = [
+    ForeignKey(entity= User::class, parentColumns = arrayOf("id"), childColumns = arrayOf("owner"), onDelete = CASCADE),
     ForeignKey(entity= User_rent::class, parentColumns = arrayOf("id"), childColumns = arrayOf("event"), onDelete = CASCADE)])
 
 data class Post(
     @NonNull @ColumnInfo(name= "event") val event: Int,
-    @NonNull @ColumnInfo(name= "owner") val owner: String,
+    @NonNull @ColumnInfo(name= "owner") val owner: Int,
     @NonNull @ColumnInfo(name= "title") val title: String,
     @NonNull @ColumnInfo(name= "required") val required: Int
 ) {

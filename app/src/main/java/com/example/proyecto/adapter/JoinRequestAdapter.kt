@@ -1,6 +1,8 @@
 package com.example.proyecto.adapter
 
 import android.content.Context
+import android.content.Intent
+import android.support.v4.content.ContextCompat.startActivity
 import android.support.v7.widget.RecyclerView
 import android.util.Log
 import android.view.LayoutInflater
@@ -11,6 +13,7 @@ import android.widget.TextView
 import android.widget.Toast
 
 import com.example.proyecto.R
+import com.example.proyecto.activities.MainActivity
 import com.example.proyecto.db.AppDatabase
 import com.example.proyecto.db.models.AcceptedRequest
 
@@ -59,6 +62,10 @@ class JoinRequestAdapter(
                     launch(Dispatchers.Main) {
                         Toast.makeText(context, "Rented!", Toast.LENGTH_LONG).show()
                     }
+                    val intent = Intent(context, MainActivity::class.java)
+                    intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
+                    context.startActivity(intent)
+
                 } catch (e: Exception) {
                     launch(Dispatchers.Main) {
                         Log.d("ERROR", "Error storing rent ${e.message}")

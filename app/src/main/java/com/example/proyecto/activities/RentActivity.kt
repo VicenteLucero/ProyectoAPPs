@@ -4,6 +4,7 @@ import android.arch.persistence.room.ColumnInfo
 import android.arch.persistence.room.Entity
 import android.arch.persistence.room.ForeignKey.CASCADE
 import android.arch.persistence.room.PrimaryKey
+import android.content.Intent
 import android.graphics.BitmapFactory
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
@@ -75,7 +76,7 @@ class RentActivity : AppCompatActivity() {
 
 
 
-            val newUserRent = User_rent(currentUserEmail, currentScheduleId, sportText, playersText.toInt())
+            val newUserRent = User_rent(AppDatabase.getDatabase(baseContext).userDao().getUserByEmail(currentUserEmail).id, currentScheduleId, sportText, playersText.toInt())
             GlobalScope.launch(Dispatchers.IO) {
                 try {
                     AppDatabase.getDatabase(baseContext).user_rentDao().insertAll(newUserRent)
@@ -92,7 +93,7 @@ class RentActivity : AppCompatActivity() {
 
                 try {
                     val userRentId = AppDatabase.getDatabase(baseContext).user_rentDao().getScheduleRent(currentScheduleId).id
-                    val newPost = Post(userRentId, "Max", descriptionText, playersText.toInt())
+                    val newPost = Post(userRentId, AppDatabase.getDatabase(baseContext).userDao().getUserByEmail(currentUserEmail).id, descriptionText, playersText.toInt())
                     AppDatabase.getDatabase(baseContext).postDao().insertPost(newPost)
 
                     launch(Dispatchers.Main) {
@@ -104,6 +105,11 @@ class RentActivity : AppCompatActivity() {
                         Toast.makeText(baseContext, "Error storing post ${e.message}", Toast.LENGTH_LONG).show()
                     }
                 }
+
+                val intent = Intent(applicationContext, MainActivity::class.java)
+                intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
+                startActivity(intent)
+                finish()
             }
 
 

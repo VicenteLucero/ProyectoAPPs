@@ -7,7 +7,10 @@ import com.example.proyecto.db.models.Sport
 @Dao
 interface PostDao {
     @Query("SELECT * FROM posts WHERE owner NOT LIKE :owner")
-    fun getPostFromOthersUsers(owner: String): List<Post>
+    fun getPostFromOthersUsers(owner: Int): List<Post>
+
+    @Query("SELECT * FROM posts WHERE owner LIKE :owner")
+    fun getPostsFromUser(owner: Int): List<Post>
 
     @Query("SELECT * FROM posts WHERE title LIKE :title")
     fun filterByTitle(title: String): List<Post>
