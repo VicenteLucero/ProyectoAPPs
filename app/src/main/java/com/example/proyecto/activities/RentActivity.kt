@@ -76,8 +76,9 @@ class RentActivity : AppCompatActivity() {
 
 
 
-            val newUserRent = User_rent(AppDatabase.getDatabase(baseContext).userDao().getUserByEmail(currentUserEmail).id, currentScheduleId, sportText, playersText.toInt())
             GlobalScope.launch(Dispatchers.IO) {
+                val newUserRent = User_rent(AppDatabase.getDatabase(baseContext).userDao().getUserByEmail(currentUserEmail).id, currentScheduleId, sportText, playersText.toInt())
+
                 try {
                     AppDatabase.getDatabase(baseContext).user_rentDao().insertAll(newUserRent)
                     launch(Dispatchers.Main) {

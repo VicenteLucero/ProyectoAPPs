@@ -56,9 +56,12 @@ class Payment_method : Fragment() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         when(requestCode){
-            RequestCode.GO_TO_LOGIN_FROM_MAIN_ACTIVITY -> {
+            RequestCode.GO_TO_ADD_FROM_PAYMETHOD_FRAGMENT -> {
                 if(resultCode == Activity.RESULT_OK){
-                        loadMethods()
+                    val intent = Intent(context!!, MainActivity::class.java)
+                    intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
+                    startActivity(intent)
+
                 }
             }
         }

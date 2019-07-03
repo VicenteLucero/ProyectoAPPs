@@ -44,15 +44,17 @@ class MyRentsAdapter (
             val rowView = inflater.inflate(R.layout.list_item_my_rents, parent, false)
             val sportDao = AppDatabase.getDatabase(context).sportDao()
             val fieldDao = AppDatabase.getDatabase(context).fieldDao()
+            val schedulesDao = AppDatabase.getDatabase(context).scheduleDao()
             GlobalScope.launch(Dispatchers.IO) {
-                val field = fieldDao.getField(dataSource[position].fieldName)
-                val fieldName = field.name
-                val sport = sportDao.getSport(field.sport).name
+                val field = schedulesDao.getOneSchedule(dataSource[position].fieldName)
+
+                val fieldName = field.field
+
 
                 launch(Dispatchers.Main) {
-                    rowView.findViewById<TextView>(R.id.userNameTextView).text = fieldName
-                    rowView.findViewById<TextView>(R.id.pointsTextView).text = sport
-                    rowView.findViewById<TextView>(R.id.eventTextView).text = dataSource[position].players.toString()
+                    rowView.findViewById<TextView>(R.id.fieldNameTextView).text = "Field id: " + fieldName.toString()
+                    rowView.findViewById<TextView>(R.id.hourTextView).text = "Hora Ariendo: " + field.hour.toString()
+
                 }
             }
 

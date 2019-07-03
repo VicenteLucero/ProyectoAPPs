@@ -5,13 +5,13 @@
                                              android:layout_height="match_parent"
                                              tools:context="fragments.Payment_method" android:background="#FFFFFF">
     <ListView
-            android:layout_width="393dp"
-            android:layout_height="538dp"
+            android:layout_width="224dp"
+            android:layout_height="324dp"
             android:id="@+id/paymentsListView"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/title"
             app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
-            app:layout_constraintHorizontal_bias="0.9"/>
+            app:layout_constraintHorizontal_bias="0.452" android:layout_marginTop="16dp"/>
     <TextView
             android:text="@string/payment_fragment_title"
             android:layout_width="196dp"

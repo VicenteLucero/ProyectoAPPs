@@ -256,7 +256,7 @@ class MainActivity : AppCompatActivity(),  OnMapReadyCallback {
                     if (myRentsFragment != null){
                         transaction.replace(R.id.contentFrameLayout, myRentsFragment)
                     } else {
-                        transaction.replace(R.id.contentFrameLayout, MyRequests(), "myRentsFrag")
+                        transaction.replace(R.id.contentFrameLayout, My_Rented_Fields(), "myRentsFrag")
                     }
                     supportActionBar!!.title = "@string/my_rents_title"
                 }
