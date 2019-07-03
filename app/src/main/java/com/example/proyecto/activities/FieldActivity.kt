@@ -10,6 +10,7 @@ import com.example.proyecto.R
 import com.example.proyecto.adapter.JoinRequestAdapter
 import com.example.proyecto.adapter.ScheduleAdapter
 import com.example.proyecto.db.AppDatabase
+import com.example.proyecto.db.models.Post
 import com.example.proyecto.db.models.Schedules
 import com.example.proyecto.db.models.User
 import com.google.android.gms.maps.model.LatLng
@@ -40,18 +41,19 @@ class FieldActivity : AppCompatActivity() {
         longitude = intent.getDoubleExtra("LONGITUDE", 0.0)
         loadFieldDetails()
         setListener()
+        setListOnClickListener()
     }
 
     private fun setListener() {
         seeRentButton.setOnClickListener {
             rentList.visibility = View.VISIBLE
-            matchesList.visibility = View.INVISIBLE
+            //matchesList.visibility = View.INVISIBLE
             loadSchedules()
             setListOnClickListener()
         }
         matchButton.setOnClickListener {
             rentList.visibility = View.INVISIBLE
-            matchesList.visibility = View.VISIBLE
+            //matchesList.visibility = View.VISIBLE
             loadPosts()
         }
     }
@@ -80,9 +82,24 @@ class FieldActivity : AppCompatActivity() {
     }
 
     private fun loadPosts() {
-        val user_rentDao = AppDatabase.getDatabase(this).user_rentDao()
+        val postDao = AppDatabase.getDatabase(this).postDao()
+        val scheduleDao = AppDatabase.getDatabase(this).scheduleDao()
         GlobalScope.launch(Dispatchers.IO){
-            val rents = user_rentDao.getFieldRents(current_id)
+
+            var myList: MutableList<Post> = mutableListOf<Post>()
+
+            val posts = postDao.
+                selectAllActive()
+
+            val schedules = scheduleDao.getSchedule(current_id)
+
+            for(i in posts){
+                for(j in schedules){
+                    if (i.event == j.id){
+                        myList.add(i)
+                    }
+                }
+            }
         }
     }
 

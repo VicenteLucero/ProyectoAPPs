@@ -35,7 +35,7 @@ class ScheduleAdapter(
         // Get view for row item
         val rowView = inflater.inflate(R.layout.list_item_schedule, parent, false)
 
-        if (dataSource[position].rented) {
+        if (!dataSource[position].rented) {
 
             rowView.findViewById<TextView>(R.id.fieldNameTextView).text = dataSource[position].field.toString()
             rowView.findViewById<TextView>(R.id.hourTextView).text = dataSource[position].hour.toString()

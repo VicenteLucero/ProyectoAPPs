@@ -11,6 +11,9 @@ interface PostDao {
     @Query("SELECT * FROM posts WHERE title LIKE :title")
     fun filterByTitle(title: String): List<Post>
 
+    @Query("SELECT * FROM posts WHERE required > 0")
+    fun selectAllActive(): List<Post>
+
     //funcion para buscar por deporte
 
     @Insert

@@ -58,12 +58,7 @@
             app:layout_constraintStart_toEndOf="@+id/descriptionTitle" android:layout_marginStart="8dp"
             app:layout_constraintHorizontal_bias="0.822" android:layout_marginTop="28dp"
             app:layout_constraintTop_toBottomOf="@+id/sportValue"/>
-    <ListView
-            android:layout_width="372dp"
-            android:layout_height="204dp" android:layout_marginTop="8dp"
-            app:layout_constraintTop_toBottomOf="@+id/descriptionValue" app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginEnd="8dp" app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="8dp" android:id="@+id/matchesList" android:visibility="invisible"/>
+
     <Button
             android:text="@string/rent_button_field"
             android:layout_width="132dp"
@@ -76,7 +71,7 @@
             android:layout_width="133dp"
             android:layout_height="46dp"
             android:id="@+id/matchButton" android:layout_marginTop="12dp"
-            app:layout_constraintTop_toBottomOf="@+id/rentButton"
+            app:layout_constraintTop_toBottomOf="@+id/seeRentButton"
             app:layout_constraintEnd_toStartOf="@+id/descriptionValue" android:layout_marginEnd="28dp"/>
     <ListView
             android:layout_width="372dp"
