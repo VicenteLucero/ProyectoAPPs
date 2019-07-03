@@ -11,6 +11,9 @@ interface User_rentDao {
     @Query("SELECT * FROM user_rents WHERE owner LIKE :owner")
     fun getCurrentUserRents(owner: Int): List<User_rent>
 
+    @Query("SELECT * FROM user_rents WHERE id LIKE :id")
+    fun getUser(id: Int): List<User_rent>
+
     //CUANDO LOS DUEÑOS DE LOS CAMPOS QUIERAN VER LOS ARRIENDOS Y SUS DETALLES
     @Query("SELECT * FROM user_rents WHERE schedule LIKE :schedule")
     fun getScheduleRent(schedule: Int): User_rent

@@ -49,8 +49,13 @@ class JoinRequestAdapter(
 
         // Get view for row item
         val rowView = inflater.inflate(R.layout.list_item_join_request, parent, false)
-        rowView.findViewById<TextView>(R.id.userNameTextView).text = dataSource[position].requester.toString()
-        rowView.findViewById<TextView>(R.id.pointsTextView).text = dataSource[position].post.toString()
+
+        GlobalScope.launch(Dispatchers.IO) { // replaces doAsync (runs on another thread)
+            rowView.findViewById<TextView>(R.id.userNameTextView).text =AppDatabase.getDatabase(context).userDao().getUserById(dataSource[position].requester).name
+            rowView.findViewById<TextView>(R.id.pointsTextView).text = AppDatabase.getDatabase(context).postDao().getPost(dataSource[position].post).title
+
+        }
+
         rowView.findViewById<TextView>(R.id.eventTextView).text = dataSource[position].message
 
 

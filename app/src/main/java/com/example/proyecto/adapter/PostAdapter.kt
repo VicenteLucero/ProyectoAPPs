@@ -12,12 +12,16 @@ import android.widget.TextView
 import com.example.proyecto.R
 import com.example.proyecto.activities.RentActivity
 import com.example.proyecto.activities.RequestActivity
+import com.example.proyecto.db.AppDatabase
 import com.example.proyecto.db.models.Post
 
 
 import com.example.proyecto.db.models.Schedules
 import kotlinx.android.synthetic.main.list_item_post.view.*
 import kotlinx.android.synthetic.main.list_item_schedule.view.*
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 
 class PostAdapter(
@@ -44,9 +48,13 @@ class PostAdapter(
 
         if (dataSource[position].required > 0) {
 
-            rowView.findViewById<TextView>(R.id.scheduleTextView).text = dataSource[position].event.toString()
+            GlobalScope.launch(Dispatchers.IO) { // replaces doAsync (runs on another thread)
+                rowView.findViewById<TextView>(R.id.scheduleTextView).text  =AppDatabase.getDatabase(context).userDao().getUserById(dataSource[position].owner).name
+
+            }
+
             rowView.findViewById<TextView>(R.id.titleTextView).text = dataSource[position].title
-            rowView.findViewById<TextView>(R.id.playersMissing).text = dataSource[position].required.toString()
+            rowView.findViewById<TextView>(R.id.playersMissing).text = "Jugadores que faltan:" + dataSource[position].required.toString()
 
             rowView.goRequestButton.setOnClickListener {
                 context.startActivity(
