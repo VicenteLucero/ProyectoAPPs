@@ -23,6 +23,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import java.io.File
+import java.util.logging.Logger.global
 
 class RentActivity : AppCompatActivity() {
 
@@ -48,7 +49,8 @@ class RentActivity : AppCompatActivity() {
             val currentUserEmail = CredentialsManager.getInstance(baseContext).loadUser()!!.first
             val appDatabase = AppDatabase.getDatabase(baseContext)
             val scheduleDao = appDatabase.scheduleDao()
-            val selectedSchedule = scheduleDao.getSchedule(currentScheduleId)
+            val User_rentDao = appDatabase.user_rentDao()
+            val selectedSchedule = scheduleDao.getOneSchedule(currentScheduleId)
 
 
             launch(Dispatchers.Main) {
@@ -73,11 +75,10 @@ class RentActivity : AppCompatActivity() {
 
 
 
-            val newUserRent = User_rent(currentUserEmail, scheduleDao.getSchedule(currentScheduleId).field, sportText, "today", "tomorow", playersText.toInt())
-            val newPost = Post(currentComplaintId, currentUserEmail, commentaryText.toString(), currentDate)
+            val newUserRent = User_rent(currentUserEmail, currentScheduleId, sportText, playersText.toInt())
             GlobalScope.launch(Dispatchers.IO) {
                 try {
-                    AppDatabase.getDatabase(baseContext).User_rentDao().insertAll(newUserRent)
+                    AppDatabase.getDatabase(baseContext).user_rentDao().insertAll(newUserRent)
                     launch(Dispatchers.Main) {
                         Toast.makeText(baseContext, "Rented!", Toast.LENGTH_LONG).show()
                     }
@@ -88,8 +89,31 @@ class RentActivity : AppCompatActivity() {
                     }
                 }
             }
+
+
+            GlobalScope.launch(Dispatchers.IO) {
+                try {
+                    val userRentId = AppDatabase.getDatabase(baseContext).user_rentDao().getScheduleRent(currentScheduleId).id
+                    val newPost = Post(userRentId, "Max", descriptionText, sportText.toInt())
+                    AppDatabase.getDatabase(baseContext).postDao().insertPost(newPost)
+
+                    launch(Dispatchers.Main) {
+                        Toast.makeText(baseContext, "Posted!", Toast.LENGTH_LONG).show()
+                    }
+                } catch (e: Exception) {
+                    launch(Dispatchers.Main) {
+                        Log.d("ERROR", "Error storing post ${e.message}")
+                        Toast.makeText(baseContext, "Error storing post ${e.message}", Toast.LENGTH_LONG).show()
+                    }
+                }
+            }
+
+
+
+
         }
     }
+
 
 
 }

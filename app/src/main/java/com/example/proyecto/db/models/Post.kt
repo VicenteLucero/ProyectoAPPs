@@ -10,6 +10,7 @@ import java.sql.Time
 
 @Entity(tableName = "posts", foreignKeys = [
     ForeignKey(entity= User_rent::class, parentColumns = arrayOf("id"), childColumns = arrayOf("event"), onDelete = CASCADE)])
+
 data class Post(
     @NonNull @ColumnInfo(name= "event") val event: Int,
     @NonNull @ColumnInfo(name= "owner") val owner: String,
