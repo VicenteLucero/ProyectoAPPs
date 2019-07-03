@@ -15,6 +15,12 @@
             android:id="@+id/request"
             android:icon="@drawable/ic_launcher_background"
             android:title="@string/navigation_join_requests_title" />
+
+        <item
+            android:id="@+id/myRents"
+            android:icon="@drawable/ic_launcher_background"
+            android:title="@string/my_rents_title"/>
+
         <item
             android:id="@+id/payment"
             android:icon="@drawable/ic_launcher_background"

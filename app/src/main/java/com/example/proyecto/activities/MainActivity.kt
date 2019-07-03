@@ -251,6 +251,16 @@ class MainActivity : AppCompatActivity(),  OnMapReadyCallback {
                     supportActionBar!!.title = getString(R.string.action_bar_join_requests_title)
                 }
 
+                R.id.myRents -> {
+                    val myRentsFragment = supportFragmentManager.findFragmentByTag("myRentsFrag")
+                    if (myRentsFragment != null){
+                        transaction.replace(R.id.contentFrameLayout, myRentsFragment)
+                    } else {
+                        transaction.replace(R.id.contentFrameLayout, MyRequests(), "myRentsFrag")
+                    }
+                    supportActionBar!!.title = "@string/my_rents_title"
+                }
+
                 R.id.payment -> {
                     val paymentsFragment = supportFragmentManager.findFragmentByTag("paymentsFrag")
                     if (paymentsFragment != null) {
