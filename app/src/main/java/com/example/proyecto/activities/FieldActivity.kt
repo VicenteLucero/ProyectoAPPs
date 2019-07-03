@@ -62,7 +62,7 @@ class FieldActivity : AppCompatActivity() {
         rentList.setOnItemClickListener { _, _, position, _ ->
             val selectedSchedule = (rentList.adapter).getItem(position) as Schedules
             startActivity(
-                Intent(this, RentActivity::class.java).
+                Intent(baseContext, RentActivity::class.java).
                     putExtra("SCHEDULE_ID", selectedSchedule.id))
         }
     }
